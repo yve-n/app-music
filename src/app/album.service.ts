@@ -37,14 +37,26 @@ export class AlbumService {
     return this.albums.filter(album => album.title.match(re) && album.title.match(re).length > 0);
     
   }
-  emitAlbumSubject(){
-    this.subjectAlbum.next(this.album);
+  emitAlbumSubject(album:Album){
+    this.subjectAlbum.next(album);
   }
-  switchOn(i:number){ 
-      return this.albums[i].status = "On"; 
+  switchOn(album:Album){ 
+    this.albums.forEach(
+      a => {
+        if (a.ref === album.ref) { album.status = 'on'; }
+        else {
+          a.status = 'off';
+        }
+      }
+    );
+    this.emitAlbumSubject(album);
   }
-  switchOff(i:number){
-    return this.albums[i].status = "Off";
+  switchOff(album:Album){
+    this.albums.forEach(
+      a => {
+        a.status = 'off';
+      }
+    );
   }
   
 
