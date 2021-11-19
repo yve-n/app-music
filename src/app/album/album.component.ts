@@ -15,6 +15,7 @@ export class AlbumComponent implements OnInit {
   idEvent :string;
   wordEvent: string;
   selectedAlbum : Album;
+  status: string; // pour gérer l'affichage des caractères [play]
 
   constructor(private albumService : AlbumService) { }
 
@@ -30,7 +31,8 @@ export class AlbumComponent implements OnInit {
   }
 
   playParent($event){
-    this.idEvent = $event.id;
+    this.status = $event.id;
+    this.albumService.switchOn($event);
   }
 
   searchAlbum($event){
