@@ -1,0 +1,20 @@
+ <div class="card" *ngIf="album">
+    <img class="card-img-top" src="/src/assets/" alt="Group Music">
+    <div class="card-body">
+        <button type="button" class="btn btn-success" 
+        style="margin-bottom: 30px;" (click)="play(album)">Play</button>
+        <h5 class="card-title">{{album.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{album.ref}}</h6>
+        <p class="card-text">{{album.description}}</p>
+        <a href="#" class="card-link">{{album.url}}</a>
+        <ul *ngIf="album.tags" class="list-inline">
+            <li class="list-inline-item" *ngFor="let tag of album.tags">
+              <span class="badge bg-primary rounded-pill"> {{tag}} </span>
+            </li>
+        </ul>
+        <ul class="list-group" *ngIf="songs">
+            <li class="list-group-item " *ngFor="let song of songs">{{song}}</li>
+        </ul>
+    </div> 
+    
+ </div> 
