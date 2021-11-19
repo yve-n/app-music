@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { AlbumDescriptionComponent } from './album-description/album-description.component';
 import { PaginateComponent } from './paginate/paginate.component';
 import { AudioPlayerComponent } from './audio-player/audio-player.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // définition de la constante pour les routes
 const albumsRoutes: Routes = [
@@ -52,6 +53,7 @@ const albumsRoutes: Routes = [
     AppRoutingModule,
     FormsModule,
     RouterModule.forRoot(albumsRoutes), // chargement des routes dans l'application
+    HttpClientModule, // module HttpClient
   ],
   providers: [],
   bootstrap: [AppComponent]

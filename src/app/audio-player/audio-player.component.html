@@ -1,6 +1,8 @@
 
-<div class="progress">
-    <div class="progress-bar" role="progressbar"  
-     aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+<div *ngIf="showplayer" class="alert alert-primary" role="alert">
+    {{album.title}}, artist: {{ album.name }}
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" [style.width]="ratio + '%'" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    {{ current }} / {{ total}}
 </div>
-[style.width]="ratio + '%'"
